@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PortissReportingServer</title>
+<script type="text/javascript" src="/portiss-web-server/static/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="/portiss-web-server/static/health.js"></script>
+
+<link href="/portiss-web-server/static/health.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="header" >
+	<h1 align="center">Portiss Web Server Health Stats</h1>
+	</div>
+	<div class="health-container" style="display:none">
+	<div>
+		<table border=1 class="portissHealth">
+			<tr class="tableInfo">
+				<td>Table Name</td>
+				<td>Count</td>
+			</tr>
+ 		</table>
+	</div>
+	<div id="startTime" style="display:none">
+		<h2 align="center">Last Server Start Time: <span class="start-time"></span></h2>
+	</div>
+	</div>
+    	<h1 align="center" class="server-not-healthy" style="display:none">Portiss Web Server is not healthy...plz check the logs</h1>
+</body>
+<footer class="footer"></footer>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="CONSOLE" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{ISO8601} %p [%X{JASPER_REPORT_RUN_KEY}] [%t] %c{1}.%M(%L) | %m%n" />
+		</Console>
+
+		<RollingRandomAccessFile name="FILE"
+			fileName="F:/PORTISS_DISTRIBUTION_HOME_UAT/logs/portiss-web-server.log" filePattern="F:/PORTISS_DISTRIBUTION_HOME_UAT/logs/$${date:yyyy-MM-dd}/portiss-web-server-%d{yyyy-MM-dd-HH}-%i.log.gz"
+			immediateFlush="false" append="true">
+			<PatternLayout>
+				<pattern>%d{ISO8601} %p [%X{JASPER_REPORT_RUN_KEY}] [%t] %c{1}.%M(%L) | %m%n</pattern>
+				<charset>utf-8</charset>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="6" modulate="true"/>
+        		<SizeBasedTriggeringPolicy size="10 MB"/>
+			</Policies>
+			<DefaultRolloverStrategy max="100"/>
+		</RollingRandomAccessFile>
+	</Appenders>
+
+	<Loggers>
+		<asyncRoot level="INFO">
+			<AppenderRef ref="CONSOLE" />
+			<AppenderRef ref="FILE" />
+		</asyncRoot>
+
+		<AsyncLogger name="org.springframework" level="INFO"/>
+
+		<AsyncLogger name="org.eclipse.jetty" level="INFO" />
+		
+	</Loggers>
+
+</Configuration>
